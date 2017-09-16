@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CodeAlkemy.Lambda.Core</id>
+    <version>1.0.0.1</version>
+    <title>Lambda.Core</title>
+    <authors>Matheus Silva</authors>
+    <owners>CodeAlkemistT</owners>
+    <licenseUrl>https://raw.githubusercontent.com/CodeAlkemist/Lambda-Sharp/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/CodeAlkemist/Lambda-Sharp</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/CodeAlkemist/Lambda-Sharp/master/Core/Lambda.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Bring functional programming to your C# experience</description>
+    <releaseNotes>Fix bugs update API and improve performance</releaseNotes>
+    <copyright>Copyright 2017 Matheus Silva</copyright>
+    <tags>Library Runtime Utilities Tool</tags>
+  </metadata>
+</package>

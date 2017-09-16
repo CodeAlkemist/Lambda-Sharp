@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="System.IO.FileStreamExtensions" Collapsed="true">
+    <Position X="3.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>System\IO\FileChunks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Security.Cryptography.AesExtensions" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQBAAAAAAAAAgAQQAADAAAAgAAAAAAAAIgAoAAABAAA=</HashCode>
+      <FileName>System\Security\Cryptography\AesExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Security.Cryptography.Password" Collapsed="true">
+    <Position X="3.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAIAAAAAAAAAAAEAAAAAAABAAAAAAIAAAAA=</HashCode>
+      <FileName>System\Security\Cryptography\Password.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lambda.Extensions" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAQAAEAIRIgIAAIQAggAIAAAFAACFACAAkMAAEAACA=</HashCode>
+      <FileName>Utilities\ArrayExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lambda.Utilities" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Lambda.Utilities.Operations" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Utilities\Utilities.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Struct Name="Lambda.Utilities.RangeConfig" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Utilities\Utilities.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAgAAAAABAAAAAAA=</HashCode>
+      <FileName>Utilities\Utilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="System.Security.Cryptography.ISalt" Collapsed="true">
+    <Position X="3.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAACAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>System\Security\Cryptography\ISalter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Lambda.OS" Collapsed="true">
+    <Position X="9" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQAAAAAAAABAAAAAAgAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Utilities\Extensions.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
