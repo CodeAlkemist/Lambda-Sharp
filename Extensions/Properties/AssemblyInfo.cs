@@ -1,16 +1,16 @@
 ﻿using System.Reflection;
-using System.Resources;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LambdaRTE")]
-[assembly: AssemblyDescription("Lambda project runtime dll")]
+[assembly: AssemblyTitle("Extensions")]
+[assembly: AssemblyDescription("Extenssion to the core library these extensions may have external dependencies")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("CodeAlkemist")]
-[assembly: AssemblyProduct("Lambda Runtime Environment")]
-[assembly: AssemblyCopyright("Copyright © Matheus Silva 2017")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Extensions")]
+[assembly: AssemblyCopyright("Copyright © Matheus Silva  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("fa3c1578-2674-4faf-84e5-f3a4b189f2b5")]
+[assembly: Guid("df5768d6-a0d5-4268-af09-122bf2a397d6")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,4 +34,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: NeutralResourcesLanguage("he")]

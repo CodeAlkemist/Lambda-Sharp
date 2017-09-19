@@ -7,7 +7,7 @@ using System.Net.Sockets;
 
 namespace Lambda
 {
-    public static partial class Utilities
+    public partial class Utilities
     {
         public enum Operations
         {

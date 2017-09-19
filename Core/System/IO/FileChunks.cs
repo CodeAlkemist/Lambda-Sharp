@@ -12,7 +12,7 @@ namespace System.IO
         /// <param name="bufferSize">The size of the buffer in bytes</param>
         /// <param name="padding">If a chunk ends up smaller than it should pad it with 0's</param>
         /// <returns>The buffer containing the file chunk</returns>
-        public static byte[] GetChunk<T>(this T stream, int offset, int bufferSize, bool padding = true) where T:Stream
+        public static byte[] GetChunk<T>(this T stream, int offset, int bufferSize, bool padding = true) where T : Stream
         {
             if (stream == null)
                 throw new ArgumentNullException(nameof(stream));

@@ -1,19 +1,18 @@
 ﻿// In short apache 2 license, check LICENSE file for the legalese
 
 using System;
-using System.Text;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Net;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
-using System.Net;
+using System.Text;
 
 namespace Lambda
 {
-
     /// <summary>
     /// This class contains a lot of Extensions some generic some type specific most of them are self explanatory, those wich are not are documented properly
     /// </summary>
@@ -72,12 +71,19 @@ namespace Lambda
         }
 
         public static string ToBase64(this byte[] data) => Convert.ToBase64String(data, Base64FormattingOptions.None);
+
         public static string ToBase64WLB(this byte[] data) => Convert.ToBase64String(data, Base64FormattingOptions.InsertLineBreaks);
+
         public static string ToBase64(this string str) => Convert.ToBase64String(Encoding.UTF8.GetBytes(str), Base64FormattingOptions.None);
+
         public static string ToBase64WLB(this string str) => Convert.ToBase64String(Encoding.UTF8.GetBytes(str), Base64FormattingOptions.InsertLineBreaks);
+
         public static byte[] FromBase64(this string str) => Convert.FromBase64String(str);
+
         public static byte[] FromBase64(this char[] chars) => Convert.FromBase64CharArray(chars, 0, chars.Length);
-        
+
+        public static byte[] GetBytes(this string str) => Encoding.UTF8.GetBytes(str);
+
         public static TResult FetchWebPage<TResult>(this string url, Func<string, StreamReader, TResult> callback)
         {
             var req = WebRequest.Create(url);

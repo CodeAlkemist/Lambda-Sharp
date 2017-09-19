@@ -6,7 +6,6 @@ namespace Lambda
 {
     public static partial class Extensions
     {
-
         public static void WriteLine(this string str, ConsoleColor color)
         {
             Console.ForegroundColor = color;
