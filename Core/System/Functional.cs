@@ -5,7 +5,7 @@ namespace System
 {
     public static class Functional
     {
-        public static T[] Fold<T>(this T[] array, Func<T, T, T> callback, int start)
+        public static T[] Zip<T>(this T[] array, Func<T, T, T> callback, int start)
         {
             var tmp = new List<T>(array.Length);
             tmp.Add(array[0]);

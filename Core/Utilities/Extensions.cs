@@ -6,6 +6,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
@@ -83,6 +84,12 @@ namespace Lambda
         public static byte[] FromBase64(this char[] chars) => Convert.FromBase64CharArray(chars, 0, chars.Length);
 
         public static byte[] GetBytes(this string str) => Encoding.UTF8.GetBytes(str);
+
+        public static string GetString(this byte[] bytes) => Encoding.UTF8.GetString(bytes);
+
+        public static DynVal ToDynVal<T>(this T original) => DynVal.Init(original);
+
+        public static DynVal ToDynVal<T>(this T[] original) => DynVal.Init(original);
 
         public static TResult FetchWebPage<TResult>(this string url, Func<string, StreamReader, TResult> callback)
         {

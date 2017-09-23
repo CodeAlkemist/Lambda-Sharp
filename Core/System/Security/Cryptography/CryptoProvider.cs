@@ -7,19 +7,15 @@ using Lambda;
 
 namespace System.Security.Cryptography
 {
-    public class CryptoProvider
+    public class CryptoProvider : IDisposable
     {
         private byte[] _key;
         private byte[] _iv;
 
         private CryptoProvider(byte[] key, byte[] iv)
         {
-            _key = key ?? throw new ArgumentNullException(nameof(key));
-            _iv = iv ?? throw new ArgumentNullException(nameof(iv));
-        }
-
-        private CryptoProvider()
-        {
+            _key = key ?? new byte[64];
+            _iv = iv ?? new byte[64];
         }
 
         public byte[] Key { get => _key; }
@@ -27,16 +23,12 @@ namespace System.Security.Cryptography
 
         public static CryptoProvider GetCryptoProvider()
         {
-            var cp = new CryptoProvider();
+            var cp = new CryptoProvider(null, null);
             cp.PopulateKeyAndIV();
             return cp;
         }
 
-        public static CryptoProvider GetCryptoProvider(byte[] key, byte[] iv)
-        {
-            var cp = new CryptoProvider(key, iv);
-            return cp;
-        }
+        public static CryptoProvider GetCryptoProvider(byte[] key, byte[] iv) => new CryptoProvider(key, iv);
 
         public byte[] Encrypt(byte[] data)
         {
@@ -111,6 +103,16 @@ namespace System.Security.Cryptography
             rng.GetBytes(_key);
         }
 
+        public void Sanitise(bool forceGC = false)
+        {
+            if (forceGC)
+                GC.Collect();
+            EncryptionDone += null;
+            DecryptionDone += null;
+            _key = null;
+            _iv = null;
+        }
+
         public void SetKey(byte[] key) => _key = key;
 
         public void SetIV(byte[] iv) => _iv = iv;
@@ -120,16 +122,35 @@ namespace System.Security.Cryptography
             byte[] result;
             var t = new Thread(() =>
             {
-                result = this.Encrypt(data);
+                result = Encrypt(data);
                 EncryptionDone.Invoke(result);
             });
             t.SetApartmentState(ApartmentState.STA);
+            t.Name = "Encryptor";
             t.Priority = ThreadPriority.Highest;
             t.Start();
         }
 
+        public void DecryptAsync(byte[] data)
+        {
+            byte[] result;
+            var t = new Thread(() =>
+            {
+                result = Decrypt(data);
+                DecryptionDone.Invoke(result);
+            });
+            t.SetApartmentState(ApartmentState.STA);
+            t.Name = "Decryptor";
+            t.Priority = ThreadPriority.Highest;
+            t.Start();
+        }
+
+        public void Dispose() => Sanitise();
+
         public delegate void EncryptionFinished(byte[] result);
+        public delegate void DecryptionFinished(byte[] result);
 
         public event EncryptionFinished EncryptionDone;
+        public event DecryptionFinished DecryptionDone;
     }
 }

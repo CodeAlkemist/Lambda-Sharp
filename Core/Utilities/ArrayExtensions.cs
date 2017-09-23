@@ -65,5 +65,28 @@ namespace Lambda
             }
             return work.ToArray();
         }
+
+        public static int BinarySearch(this int[] set, int target) => BinarySearch(set, target, 0, set.Length);
+        public static int BinarySearch(this int[] set, int target, int low, int high)
+        {
+            if(high < low)
+                return -1;
+
+            var mid = (low + high) / 2;
+            if (set[mid] > target)
+                return BinarySearch(set, target, low, mid - 1);
+            else if (set[mid] < target)
+                return BinarySearch(set, target, mid + 1, high);
+            else
+                return mid;
+        }
+
+        public static int ToInt(this int[] digits)
+        {
+            var work = new List<char>();
+            foreach (var item in digits)
+                work.Add((char)item);
+            return Int32.Parse(work.ToArray().ToString());
+        }
     }
 }

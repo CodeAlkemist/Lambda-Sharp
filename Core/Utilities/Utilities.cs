@@ -75,9 +75,10 @@ namespace Lambda
 
         public static int[] Range(int start, int length, int interval) => Range(start, length, interval, Operations.Sum);
 
-        public static string ConsolePassword(string prompt, char mask)
+        public static string ConsolePassword(string prompt, string mask, ConsoleColor color = ConsoleColor.White)
         {
-            Console.Write(prompt);
+            prompt.Write(color);
+            
             var password = "";
             ConsoleKeyInfo key;
 
@@ -88,17 +89,18 @@ namespace Lambda
                 if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
                 {
                     password += key.KeyChar;
-                    Console.Write(mask);
+                    mask.Write();
                 }
                 else
                 {
                     if (key.Key == ConsoleKey.Backspace && password.Length > 0)
                     {
                         password = password.Substring(0, (password.Length - 1));
-                        Console.Write("\b \b");
+                        "\b \b".Write();
                     }
                 }
             } while (key.Key != ConsoleKey.Enter);
+            "\n".Write();
             return password;
         }
 
